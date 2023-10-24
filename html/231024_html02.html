@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+</head>
+
+<body>
+    <!-- form은 input을 감싸주는(관리하는) 태그 -->
+    <form action="">
+        <!-- input 태그 -->
+        <input type="button" value="버튼">
+        <input type="text" placeholder="텍스트">
+        <input type="password" placeholder="password">
+        <input type="checkbox" name="점심" value="김밥" checked>김밥
+        <input type="checkbox" name="점심" value="라면">라면
+        <input type="checkbox" name="점심" value="우동" checked>우동
+        <input type="radio" name="과일" id="사과" checked>apple
+        <input type="radio" name="과일" id="바나나">banana
+        <input type="radio" name="과일" id="멜론">melon
+        <input type="date" name="calendar" id="">
+        <input type="datetime-local" name="calendar2" id="">
+
+        <!-- 선택 메뉴 -->
+        <select name="" id="">
+            <optgroup label="like">
+                <option value="apple">apple</option>
+                <option value="banana" disabled>banana</option>
+            </optgroup>
+            <optgroup label="don't like">
+                <option value="melon">melon</option>
+                <option value="orange" selected>orange</option>
+            </optgroup>
+        </select>
+    </form>
+
+    <hr>
+    <!-- 테이블 -->
+    <table border="1" cellspacing="0" cellpadding="5" width="300" height="300" text-align="center" vertical-align="middle">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>성별</th>
+        </tr>
+        <tr>
+            <td>짱구</td>
+            <td>5살</td>
+            <td>남자</td>
+        </tr>
+        <tr>
+            <td>짱아</td>
+            <td>2살</td>
+            <td>여자</td>
+        </tr>
+        <tr>
+            <td>맹구</td>
+            <td>5살</td>
+            <td>남자</td>
+        </tr>
+    </table>
+</body>
+
+</html>
