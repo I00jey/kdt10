@@ -1,0 +1,36 @@
+span{
+    color: white;
+    background-color: black;
+}
+div{
+    height: 30px;
+}
+#red{
+    margin-top: 30px;
+    background-color: red;
+    width: 50px;
+}
+#orange{
+    background-color: orange;
+    width: 100px;
+}
+#yellow{
+    background-color: yellow;
+    width: 150px;
+}
+#green{
+    background-color: green;
+    width: 200px;
+}
+#blue{
+    background-color: blue;
+    width: 250px;
+}
+#navy{
+    background-color: navy;
+    width: 300px;
+}
+#purple{
+    background-color: purple;
+    width: 350px;
+}
