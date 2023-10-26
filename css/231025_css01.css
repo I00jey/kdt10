@@ -1,21 +1,12 @@
-p.lion{
-    background-color: red;
+.fruits *:not(span){
+    color: red;
 }
-ul>.lion{
-    background-color: greenyellow;
+.list li:not(li){
+    background-color: blue;
 }
-#tiger{
-    background-color: yellow;
+.box::before{
+    content: "앞";
 }
-.lion{
-    color: sienna;
-}
-div .lion{
-    font-weight: bold;
-}
-#tiger + li{
-    background-color: skyblue;
-}
-li.lion ~ li{
-    background-color: orange;
+.box::after{
+    content: "뒤";
 }

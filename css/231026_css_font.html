@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <title>font</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 40px;
+            font-size: 20px;
+            font-weight: 400;
+            background-color: yellow;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .google {
+            font-family: 'Gugi', sans-serif;
+        }
+
+        @font-face {
+            font-family: 'DNFBitBitv2';
+            font-style: normal;
+            font-weight: 400;
+            src: url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')
+        }
+
+        .noon {
+            font-family: 'DNFBitBitv2', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- line-height -->
+    <div class="box">
+        <p>text</p>
+    </div>
+    <hr>
+    <!-- font-family -->
+    <p class="google">Google / Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae suscipit at recusandae
+        nobis
+        cupiditate veniam voluptas delectus minima nulla, itaque illum architecto, nostrum veritatis maiores officia,
+        tempore adipisci quos voluptatum!</p>
+    <p class="noon">Noon / Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, possimus! Qui, et ipsa?
+        Mollitia molestias distinctio sed perspiciatis optio, culpa ex illum, vero est commodi eos earum. Impedit,
+        numquam id?</p>
+    <hr>
+</body>
+
+</html>
