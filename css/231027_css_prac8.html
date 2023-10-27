@@ -6,7 +6,8 @@
     <title>calc & line-height</title>
     <style>
         *{
-            background-color: lightyellow;
+            background-color: lightblue;
+            margin: 0; padding: 0;
         }
         .kdt{
             width: 10vw;
@@ -15,8 +16,9 @@
             color: white;
             line-height: 10vw;
             text-align: center;
-            margin: auto;
-            margin-top: calc(50vh - 5vw);
+            margin: calc((100vh - 10vw)/2) auto;
+            /* 세로 중앙 정렬 : 
+            현제 화면 기준 전체 새로 길이(100vh) - 정사각형 세로 길이 (10vw) 그 다음 나누기 2해서 위 아래에 마진 주기 */
         }
     </style>
 </head>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Song+Myung&display=swap" rel="stylesheet">
+    <title>설문조사 폼</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .survey {
+            border: 3px solid black;
+            width: 60vw;
+            height: 80vh;
+            margin: calc((100vh - 81vh)/2) auto;
+            border-radius: 40px;
+            font-family: 'Song Myung', serif;
+            background-color: lightgray;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 10px 0 10px 0;
+        }
+
+        form {
+            padding-left: 13vw;
+            padding-right: 7vw;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            /* background-color: aliceblue; */
+        }
+
+        #name {
+            display: inline-block;
+            margin-left: 2vw;
+            margin-right: 5vw;
+        }
+
+        #email {
+            display: inline-block;
+            margin-left: 2vw;
+            margin-right: 3vw;
+        }
+
+        h2 {
+            margin-bottom: 1vw;
+        }
+
+        .class {
+            margin-left: 1vw;
+            margin-right: 5px;
+        }
+
+        .age {
+            margin-left: 1vw;
+            margin-right: 5px;
+        }
+
+        #button {
+            width: 100px;
+            display: block;
+            height: 40px;
+            background-color: rgba(70, 76, 255, 0.47);
+            margin: auto;
+            margin-top: 20px;
+            border: 0px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="survey">
+        <h1>설문조사</h1>
+        <form action="">
+            이름<input type="text" name="" id="name" placeholder="홍길동">
+            이메일<input type="email" name="" id="email" placeholder="love@example.com">
+            <br><br>
+            <h2>나이</h2>
+            <input type="radio" name="나이" id="" class="age" checked>10대
+            <input type="radio" name="나이" id="" class="age">20대
+            <input type="radio" name="나이" id="" class="age">30대
+            <input type="radio" name="나이" id="" class="age">40대
+            <input type="radio" name="나이" id="" class="age">50대
+            <input type="radio" name="나이" id="" class="age">60대 이상
+            <br><br>
+            <h2>원하는 강의(복수응답가능)</h2>
+            <input type="checkbox" name="study" id="" class="class" checked>html
+            <input type="checkbox" name="study" id="" class="class">css
+            <input type="checkbox" name="study" id="" class="class">js <br><br>
+            <h2>건의사항</h2>
+            <textarea name="" id="textarea" cols="70" rows="7" placeholder="하고 싶은 말을 써주세요:)"></textarea>
+
+        </form>
+        <input type="button" id="button" value="제출">
+    </div>
+
+</body>
+
+</html>

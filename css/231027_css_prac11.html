@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 사라지게 하기</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 10px 0px;
+        }
+        .display:hover{
+            display: none;
+        }
+        /* 적용되지 않는 코드 */
+        .visibility:active{
+            visibility: visible;
+        }
+        /* visible:hidden에 의해 visiblity 박스는 화면에 표시되지않고 속성도 사라짐 (위에 active 코드도 적용X) */
+        .visibility{
+            visibility: hidden;
+        }
+        .opacity{
+            opacity: 0.5;
+        }
+        .opacity:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="box display">display</div>
+    <div class="box visibility">visibility</div>
+    <input type="text" class="visibility">
+    <div class="box opacity">opacity</div>
+</body>
+</html>
