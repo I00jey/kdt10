@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경 적용하기</title>
+    <style>
+        .back{
+            background-image: url(https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a);
+            background-color: skyblue;
+            width: 800px;
+            height: 500px;
+        }
+        .back1{
+            background-position: left center;
+            background-repeat: repeat-x;
+        }
+        .back2{
+            background-position: 100px 30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .back3{
+            background-size: cover;
+            background-position: center 60px;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="back back1"></div>
+    <hr>
+    <div class="back back2"></div>
+    <hr>
+    <div class="back back3"></div>
+</body>
+</html>

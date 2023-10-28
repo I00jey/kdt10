@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background</title>
+    <style>
+        div{
+            background-color: aliceblue;
+            width: 500px;
+            height: 500px;
+        }
+        .background-image{
+            background-image: url(https://i.pinimg.com/236x/7d/eb/3d/7deb3d45999017e3db571b191ed81669.jpg);
+            /* background-repeat */
+            background-repeat: repeat;
+            background-repeat: repeat-x;
+            background-repeat: repeat-y;
+            background-repeat: no-repeat;
+            /* background-position */
+            /* background-position: left;
+            background-position: left top;
+            background-position: center;
+            background-position: 100px; */
+            /* background-size */
+            background-size: auto;
+            background-size: 100px;
+            background-size: cover;
+            /*  */
+            background-size: contain;
+            /* background-attachment */
+        }
+        .background-attachment{
+            background-image: url(https://i.pinimg.com/236x/7d/eb/3d/7deb3d45999017e3db571b191ed81669.jpg);
+            overflow: scroll;
+            /* background-attachment: local; */
+            /* 요소 내 스크롤과 함께 이미지 이동 */
+            /* background-attachment: scroll; */
+            /* 스크롤에 관계없이 이미지 고정 */
+            background-attachment: fixed;
+            /* 외부 (뷰포트)에 따라 이미지 변화 */
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body style="height: 1000px;">
+    <div class="background-image"></div>
+    <div class="background-attachment">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt officiis numquam sapiente deleniti voluptatem dolorum quam! Molestiae rerum, eos fugiat error repellendus, tenetur eligendi rem ducimus voluptas tempore eum deleniti?
+        Rerum quia quidem suscipit adipisci doloribus exercitationem repudiandae distinctio aliquam voluptas molestiae quibusdam, doloremque officiis error repellendus! Natus molestiae repellat eum. Repudiandae, quas libero esse nisi cum maxime ducimus magni!
+        Illum aut quidem maxime quisquam ipsa in totam, iusto nisi repudiandae harum, distinctio numquam voluptate corrupti officiis asperiores repellendus odit voluptatibus eum libero temporibus molestias debitis vel corporis cum? Eius.
+        Nemo aliquam odit enim, quae temporibus quis facere alias, a porro pariatur impedit commodi earum illum atque aspernatur dolore quas quaerat officiis voluptates exercitationem! Doloribus neque minima veniam nesciunt facilis?
+    </div>
+</body>
+</html>

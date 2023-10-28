@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-direction</title>
+    <style>
+        .container{
+            background-color: blue;
+            width: 500px;
+            height: 500px;
+            /* flex-direction: column-reverse; */
+            display: flex;
+        }
+        .flex1{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        .flex2{
+            width:100px;
+            height: 100px;
+            background-color: orange;
+        }
+        .flex3{
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        }
+        .container2{
+            flex-direction: row-reverse;
+        }
+        .container3{
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flex flex1"></div>
+        <div class="flex flex2"></div>
+        <div class="fles flex3"></div>
+    </div>
+    <hr>
+    <div class="container container2">
+        <div class="flex flex1"></div>
+        <div class="flex flex2"></div>
+        <div class="fles flex3"></div>
+    </div>
+    <hr>
+    <div class="container container3">
+        <div class="flex flex1"></div>
+        <div class="flex flex2"></div>
+        <div class="fles flex3"></div>
+    </div>
+</body>
+</html>
