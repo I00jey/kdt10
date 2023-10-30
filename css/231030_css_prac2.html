@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <style>
+        .content {
+            background-color: black;
+            color: white;
+            overflow: auto;
+            overflow-x: hidden;
+            width: 100px;
+            height: 100px;
+            transition-property: width height;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+            transition-delay: 0.5s;
+            /* transition: all 1s linear 0.5s; */
+            /* transition-property : all(기본값) */
+        }
+
+        .content:hover {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Transition 실습</h2>
+    <div class="content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque error quos rem distinctio!
+        Tempore, facere quis eaque reiciendis nam repellat illum iste laboriosam necessitatibus ullam 
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation 1</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        @keyframes ani1{
+            0%{
+                top:0;
+                left: 0;
+            }
+            25%{
+                top:0px;
+                left:300px
+            }
+            50%{
+                top: 200px;
+                left: 300px;
+            }
+            75%{
+                left: 0;
+                top: 200px;
+            }
+            100%{
+                top: 0;
+                left: 0;
+            }
+        }
+        div{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: skyblue;
+            position: absolute;
+            animation-name: ani1;
+            animation-duration: 3s;
+            animation-iteration-count: 6;
+            animation-delay: 2s;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

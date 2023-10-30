@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex 활용</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        h3 {
+            text-align: center;
+            padding: 0px;
+
+        }
+
+        .header {
+            /* height: 35px;
+            line-height: 35px; */
+            background-color: lightgray;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .item {
+            font-weight: bold;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <hr>
+    <h3>Flex를 이용해 여러 종류의 Header를 만들어보자!</h3>
+    <div class="header">
+        <div class="item items">LOGO</div>
+        <div class="item">
+            <div class="items">MENU1</div>
+            <div class="items">MENU2</div>
+            <div class="items">MENU3</div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="header">
+        <div class="item">MENU1</div>
+        <div class="item">MENU2</div>
+        <div class="item">MENU3</div>
+    </div>
+</body>
+
+</html>
