@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>variable</title>
+    <script>
+        /*
+        자료형
+        - 기본
+            - string
+            - number
+            - boolean
+            - null
+            - undefined
+        - 객체
+            - array
+            - object
+        */
+
+
+        // 1. string
+        let myName = 'jey'
+        let email = 'i_jey@gmail.com'
+        let city = "'전주'"
+
+        console.log(myName)
+        console.log(email)
+        console.log(city)
+
+        // 문자와 변수를 동시에 출력
+        console.log('내 이름은', myName, '입니다')
+        console.log('내 이름은' + myName + '입니다')
+
+        // 백틱 ``
+        console.log(`온전한 고을, ${city}로 오세요`)
+        // 백틱, 변수에 할당 가능
+        let jeonju = `온전한 고을, ${city}로 오세요`
+        console.log(jeonju)
+
+        // 2. number
+        let number = 123;
+        let opacity = 0.64;
+        console.log(number)
+        console.log(opacity)
+        // NaN : not a number
+        console.log('apple' - 3) // NaN
+        console.log('123' - 3) //console.log에서 형변환을 해서 120 출력
+
+        // 3. boolean
+        let checked = true;
+        let isShow = false;
+        // js의 경우, 세미콜론은 필수가 아님
+        console.log(checked)
+        console.log(isShow)
+
+        //4. undefined
+        let undef;
+        console.log(undef)
+
+        //5. null
+        let empty = null;
+        console.log(empty)
+
+        // 6. array
+        // 1차원 배열
+        let fruits = ['orange', 'pineapple', 'grape', 'apple']
+        let data = [1, 'gildong', true, null, undefined]
+        console.log(fruits)
+        console.log(data)
+        // 인덱스는 0부터 시작
+        console.log(fruits[1], data[2])
+        // 2차원 배열 : [[], [], [], []] 배열 안에 배열
+
+        // 배열 속성 & 함수
+        // 배열 맨 뒤에 추가
+        fruits.push('peach')
+        console.log(fruits)
+        // 배열 맨 뒤에 삭제
+        fruits.pop()
+        console.log(fruits)
+        // 배열 맨 앞에 추가
+        fruits.unshift('banana')
+        console.log(fruits)
+        // 배열 맨 앞에 삭제 
+        fruits.shift()
+        console.log(fruits)
+        // 해당 값의 인덱스 출력
+        console.log(fruits.indexOf('grape'))
+        // 해당 값 존재 여부 출력 (boolean)
+        console.log(fruits.includes('apple'))
+        
+        // 7. object
+        let cat ={ //, 컴마로 값 구분
+            name : '시루',
+            age : 4,
+            isCute:true,
+            // 함수도 object 객체 안에 넣을 수 있음
+            mew: function(){
+                console.log('냐앙')
+            }
+        }
+        console.log(cat)
+        console.log(cat.name)
+        console.log(cat.age)
+        console.log(cat.isCute)
+        cat.mew()
+
+        // typeof 출력
+        console.log(typeof '8109')
+        console.log(typeof 8109)
+        console.log(typeof true)
+        console.log(typeof cat)     //object
+        console.log(typeof fruits)  //object
+        console.log(typeof null)    //object
+        console.log(typeof undefined)//undefined
+        console.log('typeof를 array나 null에 사용하면 ' + typeof {}+'결과를 얻을 수 있다.')
+
+        // 값 입력
+        // let mathScore = prompt("수학 점수 입력");
+        // let engScore = prompt('영어 점수 입력');
+        // // prompt로 입력 받은 값을 "문자"로 저장됨
+        // let avgScore = (mathScore + engScore) / 2;
+        // console.log(avgScore);
+
+        // 형 변환
+        // 1.  값 -> 문자 String()
+        let str1 = true;
+        let str2 = 123;
+        let str3 = null;
+        console.log(typeof String(str1))
+        console.log(typeof String(str2))
+        console.log(typeof String(str3))
+        // null은 toString()의 프로퍼티가 될 수 없음
+        // console.log(typeof str3.toString())
+
+        // 2. 값 -> 숫자 Number()
+        let n1 = true;
+        let n2 = null;
+        let n3 = 'what'
+        let n4 = '12.43'
+
+        console.log(typeof Number(n1))
+        console.log(typeof Number(n2))
+        console.log(typeof Number(n3))
+        console.log(typeof Number(n4))
+        
+        console.log(Number(n1));    //1
+        console.log(Number(n2));    //0
+        console.log(Number(n3));    //NaN
+        console.log(Number(n4));    //12.43
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
