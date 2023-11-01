@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+    <script>
+        // 함수 호출
+        sayHello(); // 괄호까지 붙여주어야 호출이 됨
+        // 함수 선언
+        function sayHello() {
+            // 함수 선언문
+            console.log('hello');
+        }
+
+        // 함수 표현식
+        let exp = function () {
+            console.log('hello2');
+        }
+        // 함수 호출
+        exp();
+
+
+        // 화살표 함수
+        // 소괄호랑 중괄호 사이에 화살표 =>
+        let pyo = () => {
+            console.log('hello3');
+        }
+        // 함수 호출
+        pyo();
+
+        // 매개변수가 있는 함수
+        // function 함수명 (매개변수1, 매개변수2, ...)
+        function hello(name, age=15) {      //매개변수에 기본값 설정
+            // hello라는 함수 범위 안에서만 쓸 수 있는 변수 : name, age
+            console.log(name + '님 안녕하세요');
+            console.log(age + '세');
+
+            // 반환값이 있는 함수
+            return age + 10;
+        } //중괄호 안쪽이 스코프(영역)
+        let result = hello('홍길동', 10);
+        console.log('result:', result);
+        hello(1);  
+        // 값을 넣어주지 않으면 undefined가 됨
+        // 매개변수에 기본값이 있다면 기본값 출력
+
+        // onclick
+        function test(){
+            alert('onclick test');
+        }
+    </script>
+</head>
+
+<body>
+    <div style="background-color: indigo; width: 100px; height: 100px;" onclick="test();"></div>
+    <button onclick="test();">onclick test button</button>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for</title>
+    <script>
+        for (let i = 0; i < 10; i++) {
+            // 초기화 : i를 0으로 세팅
+            // 조건식 : i가 10보다 작을 때 
+            // 증감식 : i를 1씩 키우겠다
+            console.log('i :', i);    // i : 0 ~ 9
+        }
+
+        for (let i = 1; i < 10; i += 3) {
+            console.log("i :", i);;
+
+        }
+
+        let n = 0;
+        while (n < 10) {
+            if (n % 3 == 0) {
+                n += 1;
+                continue;
+            }
+
+            console.log(n);
+            n += 1;
+        }
+
+        // 별 찍기
+        // for(let i = 0;i<10;i++){
+        //     for(let j =0; j<i;j++)
+        //     console.log('*');
+        // console.log('\n');
+        // }
+
+        // while문
+        let i = 0;
+        while(i<5){
+            console.log('while i :',i);
+            i++
+        }
+
+        i = 0;
+        while (true) {
+            console.log('while true i :', i);
+            i++;
+            if(i == 5){
+                break;
+            }
+        }
+
+        // break문
+        for(i = 0; i<100;i++){
+            if(i == 10){
+                console.log('멈춰');
+                break;
+            }
+            console.log(i);
+        }
+        //continue문
+        for(i = 0; i<10;i++){
+            if(i == 4){
+                console.log('다음 반복으로!');
+                continue;
+            }
+            // i ==  일 때는 continue 밑 반복문 실행 X
+            console.log(i);
+        }
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
