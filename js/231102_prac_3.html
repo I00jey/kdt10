@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습3</title>
+    <script>
+        // function solution(n) {
+        //     var answer = [];
+        //     for (let index = 0; index < n; index++) {
+        //         if (index%2==0) {
+        //             answer.push('수')
+        //         }else{
+        //             answer.push('박')
+        //         }
+        //     };
+        //     return answer.join("")
+        //     console.log(answer);
+        // }
+        // console.log(solution(3));
+
+        // function solution(n) {
+        //     var answer = 0;
+        //     let sum = 0;
+        //     for (let i = 1; i <= n; i++) {
+        //         if(n%i==0) sum+=i;
+        //     }
+        //     return sum;
+        // }
+        function solution(numbers) {
+            var answer = 0;
+            var num = [0,1,2,3,4,5,6,7,8,9];
+            let diff = num.filter(number => !numbers.includes('number'));
+            for (const item of diff) {
+                answer += item
+            }
+            return answer;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array for</title>
+    <script>
+        let fruits = ['apple', 'banana','orange','melon','grape']
+        
+        console.log('for basic');
+        for (let i = 0; i < fruits.length; i++) {
+            console.log(fruits[i]);
+        }
+        console.log('for of');
+        for (const fruit of fruits) {
+            console.log(fruit);
+        }
+        console.log('for each');
+        fruits.forEach((fruit, index, array) => {
+            console.log('fruits:',fruit);
+            console.log('index:',index);
+            console.log('array:',array);
+        });
+        fruits.forEach((fruit, index) => {
+            console.log('fruits:',fruit);
+            console.log('index:',index);
+            // console.log('array:',array);
+        });
+
+        // filter
+        let numbers=[1,2,3,4,5,6];
+        let arr;
+        arr = numbers.filter(function (num) {
+            return num>3;
+        })
+        arr = numbers.filter(num => num>3);
+
+        console.log('filter');
+        let filterResult = fruits.filter((fruit)=>{
+            return fruit.includes('p');
+        })
+        console.log('filterResult:',filterResult);
+        // 실행문이 한 줄일때만 화살표 함수 줄이기 가능
+        filterResult = fruits.filter(fruit=> fruit.includes('p'))
+        console.log('filterResult2:',filterResult);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

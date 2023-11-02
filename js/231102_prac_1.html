@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 1</title>
+    <script>
+        let arr100 = [];
+        for (let i = 0; i < 100; i++) {
+            arr100[i] = i+1;
+        }
+        console.log(arr100);
+        let sum1 = 0;
+        for (let i = 0; i < arr100.length; i++) {
+            sum1 += arr100[i];
+        }
+        console.log('for 합:',sum1);
+        let sum2 = 0;
+        for (const num of arr100) {
+            sum2 += num
+        }
+        console.log('forof 합:',sum2);
+        let sum3 = 0;
+        arr100.forEach(num => {
+            sum3 += num;
+        });
+        console.log('forEach 합;',sum3);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
