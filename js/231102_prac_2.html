@@ -6,7 +6,7 @@
     <title>실습2</title>
     <script>
         let fruits1 = ['사과','딸기','파인애플','수박','참외','오렌지','자두','망고']
-        let fruits2 = ['수박','사과','참외','오렌지','파인애플','망고']
+        let fruits2 = ['수박','사과','참외','오렌지','파인애플','망고','키위']
         let same = fruits1.filter((fruit1)=>fruits2.includes(fruit1)); 
         console.log(same);
 
@@ -14,19 +14,19 @@
         console.log(diff);
 
         // let diff2 = fruits2.filter((item) => !fruits1.includes(item));
-        // console.log(diff2);
+        // console.log(diff2);  
 
         // 리더님 풀이
-        let same2 = [];
+        let same3 = [];
         let diff3 = [];
         for (let i = 0; i < fruits1.length; i++) {
             if(fruits2.includes(fruits1[i])){
-                same2.push(fruits1[i]);
+                same3.push(fruits1[i]);
             }else{
                 diff3.push(fruits1[i]);
             }
         }
-        console.log(same2);
+        console.log(same3);
         console.log(diff3);
         
     </script>

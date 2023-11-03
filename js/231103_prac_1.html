@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단 계산기 만들기</title>
+</head>
+<body>
+    값1 : <input type="text" id="value1"><br>
+    값2 : <input type="text" id="value2" ><br>
+    연산자 : <input type="text" id="yeon" ><br>
+    결과: <input type="text" id="result"><br>
+    <button onclick="yeonDo()">계산하기</button>
+    <button onclick="reSet()">초기화</button>
+    <script>
+        let value1 = document.getElementById('value1')
+        let value2 = document.getElementById('value2')
+        let yeon = document.getElementById('yeon')
+        let result = document.getElementById('result');
+        function yeonDo() {
+            let val1 = Number(value1.value)
+            let val2 = Number(value2.value)
+            if(yeon.value == '*') result.value = val1 * val2;
+            else if(yeon.value == '/') result.value = val1 / val2
+            else if(yeon.value == '+') result.value = val1 + val2
+            else if(yeon.value == '-') result.value = val1 - val2
+        }
+        function reSet() {
+            value1.value = "";
+            value2.value = "";
+            yeon.value = "";
+            result.value = "";
+        }
+    </script>
+</body>
+</html>
