@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방명록 만들기(내꺼)</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    방명록입니다. <br><br>
+    <strong>작성자</strong> <input type="text" id="username"><br>
+    <strong>내용</strong> <input type="text" size="100" id="content"><br><br>
+    <button onclick="writeOver()">작성</button> <br>
+    <br>
+    <table border="3" cellspacing="0" cellpadding="10" text-aling="center" vertical-align="middle" id="parentTable">
+        <tr id=".tr">
+            <th>번호</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+        </tr>
+    </table>
+    <script>
+        // 요소 선택
+        let parentTable = document.getElementById('parentTable');
+        let name = document.getElementById('username');
+        let content = document.getElementById('content');
+        let count = 0;
+
+        function writeOver() {
+            let newRow = parentTable.insertRow();
+            let newCell1 = newRow.insertCell(0);
+            let newCell2 = newRow.insertCell(1);
+            let newCell3 = newRow.insertCell(2);
+            let newCell4 = newRow.insertCell(3);
+            count++;
+            let date = new Date();
+
+            // 방명록 번호를 구하는 다양한 방법 (1, 2, ...)
+            // 1. 테이블 자식들의 배열 길이 구하기
+            // 번호.innerText = table.children.length;
+            // 2. html의 tr 태그를 모두 찾아 배열로 만들고, 배열의 길이를 활용
+            // let count = document.querySelectorAll('tr');
+            // 번호.innerText = count.length;
+            // 3. 전역변수를 활용해 버튼 클릭마다 값 1씩 늘리기            
+            // 요소 값 가져오기 & 내용 채우기
+            newCell1.innerText = count;
+            newCell2.innerText = name.value;
+            newCell3.innerText = content.value;
+            newCell4.textContent = `${date.getFullYear()}-${(date.getMonth() + 1)}-${date.getDate()} ${date.getHours()} : ${date.getMinutes()}`;
+            name.value = ""
+            content.value = ""
+        }
+    </script>
+</body>
+
+</html>

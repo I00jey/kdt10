@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>간단 계산기 만들기</title>
 </head>
+
 <body>
     값1 : <input type="text" id="value1"><br>
-    값2 : <input type="text" id="value2" ><br>
-    연산자 : <input type="text" id="yeon" ><br>
+    값2 : <input type="text" id="value2"><br>
+    연산자 : <input type="text" id="oper"><br>
     결과: <input type="text" id="result"><br>
-    <button onclick="yeonDo()">계산하기</button>
+    <button onclick="operDo()">계산하기</button>
     <button onclick="reSet()">초기화</button>
     <script>
-        let value1 = document.getElementById('value1')
-        let value2 = document.getElementById('value2')
-        let yeon = document.getElementById('yeon')
+        // 요소 선택
+        let value1 = document.getElementById('value1');
+        let value2 = document.getElementById('value2');
+        let oper = document.getElementById('oper');
         let result = document.getElementById('result');
-        function yeonDo() {
-            let val1 = Number(value1.value)
-            let val2 = Number(value2.value)
-            if(yeon.value == '*') result.value = val1 * val2;
-            else if(yeon.value == '/') result.value = val1 / val2
-            else if(yeon.value == '+') result.value = val1 + val2
-            else if(yeon.value == '-') result.value = val1 - val2
+        function operDo() {
+            // 값 가져오기 & 숫자로 형변환
+            let val1 = Number(value1.value);
+            let val2 = Number(value2.value);
+            let opva = oper.value;
+
+
+            // if문 활용
+            // if(opva == '*') result.value = val1 * val2;
+            // else if(opva == '/') result.value = val1 / val2;
+            // else if(opva == '+') result.value = val1 + val2;
+            // else if(opva == '-') result.value = val1 - val2;
+
+            // switch문 활용
+            let res = 0;
+            switch (opva) {
+                case '+':
+                    res = val1 + val2;
+                    break;
+                case '-':
+                    res = val1 - val2;
+                    break;
+                case '*':
+                    res = val1 * val2;
+                    break;
+                case '/':
+                    res = val1 / val2;
+                    break;
+            }
+            result.value = res;
+
+            // let resVal = document.getElementById('result').value;
+            // 위 코드는 let resVal = '3'와 같다 -> value 값을 가져오는 것
+            // resVal = res; 
+            // != (result.value = res)
+            //input 창에 반영 안됨 -> 'text' 값으로 존재, 요소 X
+
         }
         function reSet() {
             value1.value = "";
             value2.value = "";
-            yeon.value = "";
+            oper.value = "";
             result.value = "";
         }
     </script>
 </body>
+
 </html>
