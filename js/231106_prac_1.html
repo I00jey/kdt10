@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 제이쿼리 cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- 클래스 사용을 위한 ui cdn -->
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+        integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <title>이미지 바꾸기</title>
+    <style>
+        button {
+            display: inline-block;
+            padding: 20px;
+            background-color: black;
+            color: white;
+            margin-right: 10px;
+        }
+        div{
+            margin: 0px;
+            padding: 0px;
+        }
+        #container {
+            width: 500px;
+            height: 500px;
+            border: 10px solid yellow;
+            border-radius: 40px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 60px;
+            font-weight: bold;
+            line-height: 180px;
+        }
+
+        #apple {
+            margin-left: 80px;
+        }
+
+        span {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="container">
+            <p><span>과일</span>을<br>골라볼게요</p>
+        </div>
+        <img src="" alt="" />
+    </div>
+    <button id="apple">사과</button><button id="banana">바나나</button><button id="grape">포도</button><button
+        id="peach">복숭아</button>
+    <script>
+        $('button').click(function(){
+            $('#container').css("display", "none"); 
+            $('img').attr("width", "540px");
+            $('img').attr("height", "540px");
+        })
+        $('#apple').click(function () {
+            $('img').attr("src", "/practice1_img/apple.png");
+        });
+        $('#banana').click(function () {
+            $('img').attr("src", "/practice1_img/banana.png");
+        });
+        $('#grape').click(function () {
+            $('img').attr("src", "/practice1_img/grape.png");
+        });
+        $('#peach').click(function () {
+            $('img').attr("src", "/practice1_img/peach.png");
+        });
+    </script>
+</body>
+
+</html>
