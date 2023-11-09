@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+        .grid-container {
+            display: grid;
+            /* 가로칸의 갯수, 크기 */
+            grid-template-rows: repeat(4, 100px);
+            /* 세로칸의 갯수, 크기 */
+            grid-template-columns: repeat(6, 1fr);
+            box-sizing: border-box;
+        }
+
+        .item1 {
+            background-color: #F94144;
+            grid-column: span 6;
+        }
+
+        .item2 {
+            background-color: #F3722C;
+            grid-row: span 2;
+        }  
+        .item3 {
+            background-color: #F9C74F;
+            grid-column: span 4;
+        }
+        .item4 {
+            background-color: #43AA8B;
+            grid-row: span 2;
+        }
+        .item5 {
+            background-color: #F8961E;
+            grid-column: span 2;
+        }
+        .item6 {
+            background-color: #90BE6D;
+            grid-column: span 2;
+        }
+        .item7 {
+            background-color: #4444ff;
+            grid-column: span 6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item item1">item</div>
+        <div class="grid-item item2">item</div>
+        <div class="grid-item item3">item</div>
+        <div class="grid-item item4">item</div>
+        <div class="grid-item item5">item</div>
+        <div class="grid-item item6">item</div>
+        <div class="grid-item item7">item</div>
+    </div>
+</body>
+
+</html>
