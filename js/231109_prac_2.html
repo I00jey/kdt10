@@ -15,11 +15,200 @@
         crossorigin="anonymous"></script>
     <!-- 아이콘용 CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Nanum+Gothic+Coding&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nanum Gothic Coding', monospace;
+            font-weight: 700;
+        }
+
+        header {
+            text-align: center;
+            height: 100px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: black;
+            font-family: 'Gaegu', sans-serif;
+            font-size: 50px;
+            line-height: 100px;
+        }
+
+        #icons {
+            position: absolute;
+            right: 18%;
+            top: 18%;
+            font-size: 30px;
+            line-height: 100px;
+        }
+
+        #icons>i {
+            margin-right: 20px;
+        }
+
+        #search {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #navigation {
+            display: flex;
+            align-items: center;
+            margin-left: 20%;
+        }
+
+        #navigation a {
+            color: black;
+            margin-right: 1.5em;
+        }
+
+        #navigation a::before,
+        #navigation a::after {
+            content: '\e244';
+            font-family: 'Material Icons';
+            font-size: 1em;
+
+        }
+        #slide{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        #carouselExampleFade{
+            width: 80%;
+        }
+        #bookcard{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .card{
+            position: relative;
+        }
+        .card a{
+            position: relative;
+        }
+        #bagchecknum{
+            font-size: 14px;
+            position:absolute;
+            top: 30px;
+            right: 50px;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="viewport">
+        <header>
+            <h1><a href="">ReadingOn</a></h1>
+        </header>
+        <div id="search">
+            <div class="input-group mb-3 " style="width:40%">
+                <input type="text" class="form-control" placeholder="search" aria-label="Recipient's username"
+                    aria-describedby="button-addon2" style="border-radius: 40px 0px 0px 40px;">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                    style="border-radius: 0px 40px 40px 0px;"> <i class="bi bi-search"></i></button>
+            </div>
+        </div>
+        <nav id="navigation" class="nav">
+            <a class="nav-link active" aria-current="page" href="#" id="nav1">베스트</a>
+            <a class="nav-link" href="#">신상품</a>
+            <a class="nav-link" href="#">이벤트</a>
+            <a class="nav-link" href="#">사은품</a>
+            <div id="icons">
+                <i class="bi bi-balloon-heart"></i>
+                <i class="bi bi-bag-check" ></i>
+                <span id="bagchecknum" class="position-absolute translate-middle badge rounded-pill bg-danger" style="opacity: 0;">
+                </span>
+                <i class="bi bi-person-circle"></i>
+            </div>
 
+        </nav>
+        <hr>
+        <main>
+            <div id="slide">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_1280.jpg"
+                                class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.pixabay.com/photo/2015/07/27/20/16/book-863418_1280.jpg"
+                                class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.pixabay.com/photo/2017/12/17/21/44/drink-3025022_640.jpg"
+                                class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div id="bookcard">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://contents.kyobobook.co.kr/sih/fit-in/300x0/pdt/9791171710102.jpg" class="card-img-top" alt="..." style="height: 350px;">
+                    <div class="card-body">
+                        <h5 class="card-title">전지적 푸바오 시점</h5>
+                        <p class="card-text">푸바오의 작은할부지 송바오가 전하는 판다월드 바오패밀리의 귀엽고 사랑스러운 일상 포토에세이. 엄마 아이바오의 사랑스러움과 아빠 러바오의 장난꾸러기 같은 성격을 물려받은 푸바오는 ...</p>
+                        <a href="#" class="btn btn-dark" onclick="bagClick()">장바구니 담기</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://contents.kyobobook.co.kr/sih/fit-in/300x0/pdt/9788901276571.jpg" class="card-img-top" style="height: 350px;" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">더 마인드</h5>
+                        <p class="card-text">부자는 하늘이 내린다는 말에 한 치의 의심도 없었던 한 사람이 있었다. 성실한 그는 운 좋게도 다들 좋다는 ‘공기업’에 입사했고, ‘성공했다’고 생각했다. 오판이었다. 직장 생활은  ...</p>
+                        <a href="#" class="btn btn-dark" onclick="bagClick()">장바구니 담기</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://contents.kyobobook.co.kr/sih/fit-in/300x0/pdt/9788959897179.jpg"  style="height: 350px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">트렌드 코리아 2024</h5>
+                        <p class="card-text">모든 일은 서서히 준비되고 있다가 갑작스럽게 나타난다. 챗GPT가 그랬다. 인공지능 기술과 이야기가 수도 없이 나왔지만, 챗GPT만큼 우리에게 충격을 주는 것은 없었다. 무엇이 달랐던 것일까?...</p>
+                        <a href="#" class="btn btn-dark" onclick="bagClick()">장바구니 담기</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://contents.kyobobook.co.kr/sih/fit-in/300x0/pdt/9791192389325.jpg" style="height: 350px;"class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">퓨처 셀프</h5>
+                        <p class="card-text">살 날이 얼마 남지 않은 ‘미래의 내’가 현재로 시간 여행을 왔다고 상상해보자. ‘현재의 나’는 해야 할 일은 미뤄둔 채 소파에 누워 핸드폰을 보느라 시간 가는 줄 모른다. 당장 사고...</p>
+                        <a href="#" class="btn btn-dark" onclick="bagClick()">장바구니 담기</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
-
+<script>
+    let bagCount = 0;
+    let bag_num = document.getElementById("bagchecknum");
+    function bagClick() {
+        bagCount++;
+        bag_num.style ="opacity:1";
+        console.log(bag_num, bagCount);
+        bag_num.textContent = `+${bagCount}`;
+    }
+</script>
 </html>
