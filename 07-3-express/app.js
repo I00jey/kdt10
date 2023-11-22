@@ -1,4 +1,5 @@
 const express = require('express');
+// express 객체 생성 
 const app = express();
 const port = 8000;
 
@@ -22,8 +23,33 @@ app.get('/',function(req, res){
 
     //ejs 템플릿 렌더링
     // index라는 파일명을 찾아서 해당 파일 렌더
-    res.render("index");
+    // "index" 파일에 변수를 보냄
+    res.render("index",{
+        btns :['apple','orange','kiwi'],
+        isLogin : false,
+        me:{
+            name: 'yeji'
+            ,msg : '반갑습니다~'
+        }
+    });
 })
+
+// /login 경로로 접속했을 때
+app.get('/login',function(req, res){
+    res.render("login");
+})
+
+// /register 경로로 접속했을 때
+app.get('/register',function(req, res){
+    res.render("register",{
+        me : {
+            id: 'user',
+            pw: '*******',
+            address : 'jeonju'
+        }
+    });
+})
+
 app.get('/kdt',function(req, res){
     // res.send('응답 내용')
     res.send('<h1>Hello kdt!</h1>')

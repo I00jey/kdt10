@@ -2,3 +2,7 @@ header{
     background-color: skyblue;
     color: midnightblue;
 }
+body{
+    padding: 0;
+    margin: 0;
+}
