@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 실습</title>
+    <style>
+        fieldset{
+            width: 60vw;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/signup" method="post">
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name" required>
+        <br>
+        <br>
+        <fieldset>
+            <legend>성  별</legend>
+            <input type="radio" name="gender" id="gender" value="남자" required>남자
+            <input type="radio" name="gender" id="gender" value="여자" required>여자
+        </fieldset>
+        <fieldset>
+            <legend>생년월일</legend>
+            <select name="birth" id="year">
+                <% for(var i=1900; i<=2023; i++) {%>
+                    <option value="<%= i %>">
+                        <%=i %>
+                    </option>
+                    <% } %>
+            </select>년
+            <select name="birth" id="month">
+                <% for(var i=1; i<=12; i++) {%>
+                    <option value="<%= i %>">
+                        <%=i %>
+                    </option>
+                    <% } %>
+            </select>월
+            <select name="birth" id="date">
+                <% for(var i=1; i<=31; i++) {%>
+                    <option value="<%= i %>">
+                        <%=i %>
+                    </option>
+                    <% } %>
+            </select>일
+        </fieldset>
+        <fieldset>
+            <legend>관심사</legend>
+            <input type="checkbox" name="hobby" id="hobby" value="여행">여행
+            <input type="checkbox" name="hobby" id="hobby" value="패션">패션
+            <input type="checkbox" name="hobby" id="hobby" value="음식">음식
+        </fieldset>
+        <fieldset>
+            <legend>기타</legend>
+            <label for="range">과제 만족도</label>
+            <input type="range" name="range" id="range" min="0" max="10" value="5">
+            <br>
+            <label for="color">좋아하는 색상</label>
+            <input type="color" name="color" id="color" value="#e66465">
+            <br>
+            <label for="mbti">MBTI</label>
+            <input type="text" name="mbti" id="mbti" pattern="^([a-zA-z]){4,4}$">
+        </fieldset>
+        <br>
+        <button>회원가입</button>
+    </form>
+</body>
+
+</html>

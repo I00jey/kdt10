@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>
+        <%= title %>
+    </h2>
+    <h3>이름 : <%= userInfo.name %>
+    </h3>
+    <h3>성별 : <%= userInfo.gender %>
+    </h3>
+    <h3>생년월일 : <%= userInfo.birth[0] %>년 <%= userInfo.birth[1] %>월 <%= userInfo.birth[2] %>일</h3>
+    <h3>취미 : <%= userInfo.hobby %>
+    </h3>
+    <h3>과제 만족도 : <%= userInfo.range %> / 10</h3>
+    <h3>좋아하는 색상 : <span id="myColor">
+            <%= userInfo.color %>
+        </span></h3>
+    <h3>MBTI : <%= userInfo.mbti %>
+    </h3>
+    <script>
+        const color = '<%= userInfo.color%>';
+        console.log(color);
+        document.getElementById('myColor').style.color = color;
+    </script>
+</body>
+
+</html>
