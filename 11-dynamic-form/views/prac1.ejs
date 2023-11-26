@@ -4,83 +4,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>practice1</title>
     <!-- axios cdn -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        div.result {
+            font-size: 24px;
+            font-weight: 700;
+        }
+    </style>
 </head>
 
 <body>
+    <h1>GET 폼 실습</h1>
+
     <form name="register">
-        <label for="name">이름</label>
-        <input type="text" name="name" id="name">
+        <label for="userName">이름</label>
+        <input type="text" name="userName" id="userName" autocomplete="username" required>
         <br>
-        <br>
+
         <fieldset>
-            <legend>성 별</legend>
-            <input type="radio" name="gender" id="male" value="남자">남자
-            <input type="radio" name="gender" id="female" value="여자">여자
+            <legend>성별</legend>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">남자</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">여자</label>
         </fieldset>
+        <br>
+
         <fieldset>
             <legend>생년월일</legend>
-            <select name="birth" id="year">
-                <% for(var i=1900; i<=2023; i++) {%>
+            <select name="birthYear" id="year">
+                <% for(let i=1950; i <=2023; i++) { %>
                     <option value="<%= i %>">
-                        <%=i %>
+                        <%= i %>
                     </option>
                     <% } %>
-            </select>년
-            <select name="birth" id="month">
-                <% for(var i=1; i<=12; i++) {%>
-                    <option name="birth" value="<%= i %>">
-                        <%=i %>
+            </select>
+            <label for="year">년</label>
+
+            <select name="birthMonth" id="month">
+                <% for(let i=1; i <=12; i++) { %>
+                    <option value="<%= i %>">
+                        <%= i %>
                     </option>
                     <% } %>
-            </select>월
-            <select name="birth" id="date">
-                <% for(var i=1; i<=31; i++) {%>
-                    <option name="birth" value="<%= i %>">
-                        <%=i %>
+            </select>
+            <label for="month">월</label>
+
+            <select name="birthDay" id="day">
+                <% for(let i=1; i <=31; i++) { %>
+                    <option value="<%= i %>">
+                        <%= i %>
                     </option>
                     <% } %>
-            </select>일
+            </select>
+            <label for="day">일</label>
         </fieldset>
+        <br>
         <fieldset>
             <legend>관심사</legend>
-            <input type="checkbox" name="hobby" id="trip" value="여행" required>여행
-            <input type="checkbox" name="hobby" id="fashion" value="패션" required>패션
-            <input type="checkbox" name="hobby" id="food" value="음식" required>음식
+            <input type="checkbox" name="hobby" id="travel" value="travel" required />
+            <label for="travel">여행</label>
+
+            <input type="checkbox" name="hobby" id="fashion" value="fashion" required />
+            <label for="fashion">패션</label>
+
+            <input type="checkbox" name="hobby" id="food" value="food" required />
+            <label for="food">음식</label>
         </fieldset>
         <br>
         <button type="button" onclick="signUp()">회원가입</button>
+        <div class="result"></div>
     </form>
-    <div class="result"></div>
 
     <script>
-        const resultBox = document.querySelector('.result');
+        const resultBox = document.querySelector('.result')
 
-        async function signUp() {
+        function signUp() {
             const form = document.forms['register'];
-            const data = {
-                name: form.name.value,
-                gender: form.gender.value,
-                birth: form.birth.value,
-                hobby: form.hobby.value,
+
+            let hobbyResult = [];
+
+            for (let i = 0; i < form.hobby.length; i++) {
+                if (form.hobby[i].checked) {
+                    hobbyResult.push(form.hobby[i].value);
+                }
             }
-            console.log(data);
+            const data = {
+                name: form.userName.value,
+                gender: form.gender.value,
+                birth: [form.birthYear.value, form.birthMonth.value, form.birthDay.value],
+                hobby : hobbyResult
+            }
             axios({
                 method: 'get',
                 url: '/axios',
                 params: data
             }).then((response) => {
-                // 성공하면 실행될 함수
-                console.log(response);
-                console.log(response.data);
-                resultBox.textContent = `Get / axios 요청 완료! ${response.data.name}님의 성별은 ${response.data.gender}!`;
-            }).catch((error) => {
-                console.log('에러', error);
-                resultBox.textContent = `Get / axios 요청 실패 ${error.response.data}`
+                resultBox.innerHTML = `Get-axios 요청 완료! <br> ${response.data.name}님의 성별은 ${response.data.gender}! <br> 생년월일은 ${response.data.birth[0]}년 ${response.data.birth[1]}월 ${response.data.birth[2]}일 <br> 취미는 ${response.data.hobby}`;
+                // console.log(response.data.hobby);
+
+            }).catch((err) => {
+                resultBox.textContent = `Get-axios 요청 실패ㅠ 코드를 다시 확인해주세요`;
             })
         }
+
     </script>
 </body>
 
