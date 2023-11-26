@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <form name="register">
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name">
+        <br>
+        <br>
+        <fieldset>
+            <legend>성 별</legend>
+            <input type="radio" name="gender" id="male" value="남자">남자
+            <input type="radio" name="gender" id="female" value="여자">여자
+        </fieldset>
+        <fieldset>
+            <legend>생년월일</legend>
+            <select name="birth" id="year">
+                <% for(var i=1900; i<=2023; i++) {%>
+                    <option value="<%= i %>">
+                        <%=i %>
+                    </option>
+                    <% } %>
+            </select>년
+            <select name="birth" id="month">
+                <% for(var i=1; i<=12; i++) {%>
+                    <option name="birth" value="<%= i %>">
+                        <%=i %>
+                    </option>
+                    <% } %>
+            </select>월
+            <select name="birth" id="date">
+                <% for(var i=1; i<=31; i++) {%>
+                    <option name="birth" value="<%= i %>">
+                        <%=i %>
+                    </option>
+                    <% } %>
+            </select>일
+        </fieldset>
+        <fieldset>
+            <legend>관심사</legend>
+            <input type="checkbox" name="hobby" id="trip" value="여행" required>여행
+            <input type="checkbox" name="hobby" id="fashion" value="패션" required>패션
+            <input type="checkbox" name="hobby" id="food" value="음식" required>음식
+        </fieldset>
+        <br>
+        <button type="button" onclick="signUp()">회원가입</button>
+    </form>
+    <div class="result"></div>
+
+    <script>
+        const resultBox = document.querySelector('.result');
+
+        async function signUp() {
+            const form = document.forms['register'];
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value,
+                birth: form.birth.value,
+                hobby: form.hobby.value,
+            }
+            console.log(data);
+            axios({
+                method: 'get',
+                url: '/axios',
+                params: data
+            }).then((response) => {
+                // 성공하면 실행될 함수
+                console.log(response);
+                console.log(response.data);
+                resultBox.textContent = `Get / axios 요청 완료! ${response.data.name}님의 성별은 ${response.data.gender}!`;
+            }).catch((error) => {
+                console.log('에러', error);
+                resultBox.textContent = `Get / axios 요청 실패 ${error.response.data}`
+            })
+        }
+    </script>
+</body>
+
+</html>
