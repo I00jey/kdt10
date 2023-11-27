@@ -84,8 +84,22 @@
         function signUp() {
             const form = document.forms['register'];
 
-            let hobbyResult = [];
+            // hobby checkbox 정보 출력하고 싶은 경우, 다음과 같이 새로운 배열로 정의
+            // case1. forEach 반복문 사용
+            // const hobbies = [];
+            // form.hobby.forEach((element) => {
+            //     if (element.checked) { // 체크가 되어있으면 true를 반환
+            //         hobbies.push(element.value);
+            //     }
+            // })
 
+            // case 2. filter, map 반복문 사용
+            // Array.from(arrayLike) : 유사 배열 객체를 배열로 변환해줌
+            // const hobbies = Array.from(form.hobby)
+            //     .filter((element) => element.checked === true)
+            //     .map((element) => element.value);
+
+            let hobbyResult = [];
             for (let i = 0; i < form.hobby.length; i++) {
                 if (form.hobby[i].checked) {
                     hobbyResult.push(form.hobby[i].value);
@@ -95,7 +109,7 @@
                 name: form.userName.value,
                 gender: form.gender.value,
                 birth: [form.birthYear.value, form.birthMonth.value, form.birthDay.value],
-                hobby : hobbyResult
+                hobby: hobbyResult
             }
             axios({
                 method: 'get',
@@ -109,6 +123,7 @@
                 resultBox.textContent = `Get-axios 요청 실패ㅠ 코드를 다시 확인해주세요`;
             })
         }
+
 
     </script>
 </body>

@@ -207,11 +207,11 @@
                     console.log(response);
                     // 구조분해할당
                     const { name, gender } = response.data;
-                    resultBox.textContent = `Get /axios 요청 완료! ${name}님의 성별은 ${gender}!`;
+                    resultBox.textContent = `Get / axios 요청 완료! ${name}님의 성별은 ${gender}!`;
                 }
             } catch (error) {
                 console.log('Error :', error);
-                resultBox.textContent = `Get /axios 요청 실패`
+                resultBox.textContent = `Get / axios 요청 실패`
             }
         }
 

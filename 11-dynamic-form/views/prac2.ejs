@@ -92,8 +92,8 @@
             alt="" width="300px">
         <form name="login" id="form">
             <div id="inputdiv">
-                <input type="text" name="id" id="id" placeholder="아이디">
-                <input type="text" name="pw" id="pw" placeholder="비밀번호">
+                <input type="text" name="id" id="id" placeholder="아이디" required>
+                <input type="text" name="pw" id="pw" placeholder="비밀번호" required>
             </div>
             <div id="result"></div>
             <button type="button" onclick="logIn()">로그인</button>
@@ -107,6 +107,11 @@
             const data = {
                 id: form.id.value,
                 pw: form.pw.value
+            }
+            // 입력 여부 확인
+            if (!form.id.checkValidity() || !form.pw.checkValidity()) {
+                resultBox.textContent = "아이디와 비밀번호는 필수입니다.";
+                return;
             }
             axios({
                 method: 'post',

@@ -16,6 +16,8 @@ const userid = "user";
 const userpw = "1111";
 
 app.post("/login", (req, res) => {
+    // userid, userpw라는 변수 값과 클라이언트에서 넘겨받은 값이 일치하는지 검사
+    // 결과 값을 반환
     if (req.body.id == userid && req.body.pw == userpw) {
         res.send("true");
     } else {
