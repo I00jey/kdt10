@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload file result</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        div {
+            background-color: white;
+            border-radius: 30px;
+            width: 400px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 30px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="<%= file.path %>" alt="">
+        <h2>
+            <%= data.id %>님 환영합니다!
+        </h2>
+        <p>
+            비밀번호 : <%= data.pw %>
+        </p>
+        <p>이름 : <%= data.name %>
+        </p>
+        <p>나이 : <%= data.age %>
+        </p>
+    </div>
+</body>
+
+</html>
