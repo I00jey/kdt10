@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <!-- 프론트 파일이름 바꾸기 -->
+    <form name="submit">
+        <input type="text" placeholder="아이디" name="id" id="id">
+        <input type="file" name="profile" id="profile">
+        <button type="button" onclick="register()">회원가입</button>
+    </form>
+    <script>
+        // 서버에 있는 id과 동일 여부를 확인해야하기 때문에 프론트보다 서버에서 파일이름 처리하는 것이 좋다
+        function register() {
+            const form = document.forms['submit'];
+            const formData = new FormData();
+            console.log(form.id);       //id 요소
+            console.log(form.profile);  //파일 요소
+            console.log(form.profile.files);    //파일 리스트
+            console.log(form.profile.files[0]); //파일 리스트 중 0번째 파일
+            console.log(form.profile.files[0].name);
+
+
+            const file = form.profile.files[0];
+            const filename = form.profile.files[0].name;
+            const userid = form.id.value;
+            /*
+            // 파일 이름을 가져올 수는 있지만 변경은 안됨
+            // form.profile.files[0].name = form.id.value;
+
+            // 확장자 떼오기
+            const ext = filename.split('.')[1];
+            console.log(ext);
+            // 확장자 포함해서 파일명 바꾸기
+            const newfile = new File([file], `${userid}.${ext}`, { type: file.type });
+            console.log(newfile);
+            */
+
+            // FormData
+            // backend의 multer 세부 속성에서 file 제외 데이터(req.body)를 사용하고 싶으면, FormData에 file을 맨 마지막에 넣으면(append) 된다.
+            formData.append('id', userid);
+            formData.append('profile', file);
+
+            axios({
+                method: 'post',
+                url: '/upload/dynamic',
+                data: formData,
+                headers: {
+                    'Content-Type': "multipart/form-data"
+                }
+            }).then((res) => {
+                console.log(res.data)
+            })
+        }
+    </script>
+</body>
+
+</html>

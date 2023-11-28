@@ -1,13 +1,8 @@
-const { log } = require("console");
 const express = require("express");
 const app = express();
 const port = 8000;
 
-app.set("view engine", "ejs");
-app.set("views", "./views");
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// static 등록 => 이미지 경로 접근 (프론트)
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
 const multer = require("multer");
@@ -20,23 +15,28 @@ const uploadDetail = multer({
         },
         filename(req, file, done) {
             const ext = path.extname(file.originalname);
-            console.log(req.body);
             done(null, req.body.id + ext);
         },
     }),
+    limits: {
+        fileSize: 5 * 1024 * 1024, // 5MBs
+    },
 });
+
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.render("prac-file");
+    res.render("prac");
 });
 
-app.post("/register", uploadDetail.single("uploadfile"), (req, res) => {
-    console.log(req.file);
+app.post("/upload/dynamic", uploadDetail.single("profile"), (req, res) => {
     console.log(req.body);
-    res.render("prac-file-result", {
-        file: req.file,
-        data: req.body,
-    });
+    console.log(req.file);
+    res.send("회원가입 완료");
 });
 
 app.listen(port, function () {
