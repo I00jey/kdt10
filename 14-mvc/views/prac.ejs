@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- bootstrap cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        img {
+            padding: 30px;
+        }
+
+        #form {
+            width: 500px;
+            height: 300px;
+            border: 2px solid lightgray;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        button {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: lightgreen;
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+
+        #result {
+            height: 30px;
+            margin: 0 30px;
+            line-height: 30px;
+        }
+
+        input {
+            border: none;
+            height: 40px;
+            padding-left: 20px;
+        }
+
+        #id {
+            border: 1px solid lightgray;
+            border-radius: 10px 10px 0 0;
+        }
+
+        #pw {
+            border: 1px solid lightgray;
+            border-radius: 0 0 10px 10px;
+        }
+
+        #inputdiv {
+            display: flex;
+            flex-direction: column;
+            border-radius: 30px;
+            margin: 30px;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <img src="https://i.namu.wiki/i/O_WfY01sM81pAk50fxe-CgHx-pVnipkiexM-biFWhdIBezk7_xJfDiu7P8hzraM5oNm0r92GCaXrfoZ14RNHVg.svg"
+            alt="" width="300px">
+        <form name="login" id="form">
+            <div id="inputdiv">
+                <input type="text" name="id" id="id" placeholder="아이디" required>
+                <input type="text" name="pw" id="pw" placeholder="비밀번호" required>
+            </div>
+            <div id="result"></div>
+            <button type="button" onclick="logIn()">로그인</button>
+        </form>
+    </div>
+    <script>
+        const resultBox = document.querySelector('#result');
+
+        function logIn() {
+            const form = document.forms['login'];
+            const data = {
+                id: form.id.value,
+                pw: form.pw.value
+            }
+            // 입력 여부 확인
+            if (!form.id.checkValidity() || !form.pw.checkValidity()) {
+                resultBox.textContent = "아이디와 비밀번호는 필수입니다.";
+                return;
+            }
+            axios({
+                method: 'post',
+                url: '/login',
+                data: data
+            }).then((response) => {
+                console.log(response);
+                if (response.data == true) {
+                    resultBox.textContent = `로그인 성공`;
+                    resultBox.style.color = 'blue';
+                } else {
+                    resultBox.textContent = '로그인 실패'
+                    resultBox.style.color = 'red';
+                }
+            }).catch((err) => {
+                resultBox.textContent = '오류 발생'
+            })
+        }
+    </script>
+</body>
+
+</html>
