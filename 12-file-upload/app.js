@@ -9,7 +9,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 const multer = require("multer");
 const path = require("path"); // 경로에 관한 내장 모듈
 const upload = multer({
-    dest: "uploads/", // dest : 클라이언트가 업로드한 파일을 저장할 서버측 경로
+    dest: "uploads/" // dest : 클라이언트가 업로드한 파일을 저장할 서버측 경로
 });
 
 // multer 세부 설정
@@ -30,16 +30,13 @@ const uploadDetail = multer({
             // 확장자를 제외한 파일이름
             // 확장자를 붙였다 떼였다하는 이유 -> Date.now()를 넣어 파일명 중복을 없애기 위해
             console.log(req.body);
-            done(
-                null,
-                path.basename(file.originalname, ext) + Date.now() + ext
-            );
-        },
+            done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+        }
     }),
     // limits : 파일 제한 정보
     limits: {
-        fileSize: 5 * 1024 * 1024, // 5MBs
-    },
+        fileSize: 5 * 1024 * 1024 // 5MBs
+    }
 });
 
 app.set("view engine", "ejs");
@@ -108,7 +105,7 @@ app.post("/dynamic", uploadDetail.single("dynamicFile"), (req, res) => {
     console.log(req.body);
     res.send({
         file: req.file,
-        title: req.body.title,
+        title: req.body.title
     });
 });
 
