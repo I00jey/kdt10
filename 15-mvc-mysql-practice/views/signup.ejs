@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>/user/signup</title>
+</head>
+
+<body>
+    <h1>회원가입</h1>
+    <form name="signup_form">
+        <label for="id">ID</label>
+        <input type="text" name="id" id="id"><br>
+        <label for="pw">Password</label>
+        <input type="password" name="pw" id="pw"><br>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name"><br>
+        <button type="button" onclick="register()">Register</button>
+    </form>
+    <a href="/user/signin">Login</a>
+    <script>
+        function register() {
+            const form = document.forms['signup_form'];
+
+            if (form.id.value.length == 0 || form.pw.value.length == 0 || form.name.value.length == 0) {
+                alert("빈칸이 없도록 입력해주시기 바랍니다.")
+                return;
+            };
+
+            if (form.name.value.length > 10) {
+                alert("이름은 10글자 미만입니다!");
+                return;
+            }
+            if (form.id.value.length > 20) {
+                alert("아이디는 20글자 미만입니다!");
+                return;
+            }
+            if (form.pw.value.length > 20) {
+                alert("패스워드는 20글자 미만입니다!");
+                return;
+            }
+            const data = {
+                userid: form.id.value,
+                name: form.name.value,
+                pw: form.pw.value
+            }
+            axios({
+                method: 'post',
+                url: '/user/signup',
+                data: data
+            }).then((res) => {
+                console.log(res.data);
+                document.location.href = "/user/signin";
+            }).catch((err) => {
+                console.log(err);
+            })
+        }
+    </script>
+</body>
+
+</html>
