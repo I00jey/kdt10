@@ -44,7 +44,7 @@ app.post("/token", (req, res) => {
     console.log("token >", req.headers.authorization);
     // 토큰이 있을 때
     if (req.headers.authorization) {
-        //Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhbmFuYSIsImlhdCI6MTcwMjA5MjM2OX0.wl2iXE_2gLcfjyqvWLpllLojrejpwwmo0g2qb4FLMSY
+        
         const authorization = req.headers.authorization.split(" ");
         console.log(authorization); //['Bearer', 'token_string']
         const token = authorization[1];
