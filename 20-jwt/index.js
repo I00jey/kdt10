@@ -2,8 +2,10 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const app = express();
 const PORT = 8000;
-const SECRET = "qirkdfklafdklwejroiwfdk";
 
+// 아무거나 입력
+const SECRET = "qirkdfklafdklwejroiwfdk";
+// (가정) DB에서 가져온 데이터
 const userInfo = { id: "banana", pw: "1234", name: "홍길동", age: 29 };
 
 app.set("views", "./views");
@@ -17,6 +19,7 @@ app.get("/", (req, res) => {
 app.get("/login", (req, res) => {
     res.render("login");
 });
+
 // 로그인 요청
 app.post("/login", (req, res) => {
     // jwt를 만들 때에 오류가 날 수 있음
@@ -44,13 +47,13 @@ app.post("/token", (req, res) => {
     console.log("token >", req.headers.authorization);
     // 토큰이 있을 때
     if (req.headers.authorization) {
-        
+        console.log(req.headers.authorization);
         const authorization = req.headers.authorization.split(" ");
         console.log(authorization); //['Bearer', 'token_string']
         const token = authorization[1];
 
         try {
-            // 토큰 검증 jwt.verify(token, secret)
+            // 토큰 검증 jwt.verify(token, secretOrPrivateKeu, [options, callback])
             const result = jwt.verify(token, SECRET);
             console.log(result);
 
