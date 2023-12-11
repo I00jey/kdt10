@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>암호화 연습</title>
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        fieldset {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="main_form">
+        <fieldset>
+            <input type="hidden" id="id" placeholder="id" name="id"><br>
+            <input type="text" id="userid" placeholder="userid" name="userid"><br>
+            <input type="password" id="pw" placeholder="pw" name="pw"><br>
+            <input type="text" id="name" placeholder="name" name="name"><br><br>
+            <div>
+                <button type="button" onclick="signup()">회원가입</button>
+                <button type="button" onclick="login()">로그인</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <script>
+        const form = document.forms['main_form']
+        async function signup() {
+            try {
+                const data = {
+                    userid: form.userid.value,
+                    pw: form.pw.value,
+                    name: form.name.value
+                }
+                const result = await axios({
+                    method: 'post',
+                    url: '/signup',
+                    data: data
+                })
+                alert(`${result.data.msg}`)
+            } catch (error) {
+                console.log('singup error >', error);
+            }
+        }
+
+        async function login() {
+            try {
+                const data = {
+                    userid: form.userid.value,
+                    pw: form.pw.value,
+                    name: form.name.value
+                }
+                const result = await axios({
+                    method: 'post',
+                    url: '/login',
+                    data: data
+                })
+                alert(`${result.data.msg}`)
+            } catch (error) {
+                console.log('login error >', error);
+            }
+        }
+    </script>
+</body>
+
+</html>
