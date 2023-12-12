@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket 실습1</title>
+    <!-- socket.io cdn -->
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        #chat_background {
+            width: 400px;
+            height: 500px;
+            background-color: lightskyblue;
+        }
+
+        .mymsg {
+            position: relative;
+            width: fit-content;
+            background-color: lightyellow;
+            height: fit-content;
+            margin: 2px 0;
+        }
+
+        .notmymsg {
+            position: relative;
+            background-color: white;
+            margin: 0;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Chat</h1>
+
+    <!-- [실습1] 각 버튼 누를 때마다 서버로 메시지 보내기 -->
+    <button onclick="sayHello()">hello</button>
+    <button onclick="sayStudy()">study</button>
+    <button onclick="sayBye()">bye</button>
+
+    <p id="server_result"></p>
+    <br>
+    <hr>
+    <br>
+    <div id="chat_background">
+    </div>
+    <input type="text" id="input_msg">
+    <button onclick="inputMsg()">전송</button>
+
+    <script>
+        // 소켓 사용을 위한 객체 생성
+        const socket = io.connect()
+
+        socket.on("connect", () => {
+            console.log('클라이언트 연결 완료 >', socket.id);
+        })
+
+        // hello emit
+        function sayHello() {
+            socket.emit('hello', { who: 'client', msg: 'hello' })
+
+        }
+        // helloKR
+        socket.on("helloKR", (data) => {
+            // console.log(`${data.who} : ${data.msg}`);
+            document.getElementById('server_result').textContent = `${data.who} : ${data.msg}`;
+        });
+
+        // study
+        function sayStudy() {
+            socket.emit('study', { who: 'client', msg: 'study' })
+        }
+        socket.on("studyKR", (data) => {
+            document.getElementById('server_result').textContent = `${data.who} : ${data.msg}`;
+        });
+
+        // bye
+        function sayBye() {
+            socket.emit('bye', { who: 'client', msg: 'bye' })
+        }
+        // byeKR
+        socket.on("byeKR", (data) => {
+            document.getElementById('server_result').textContent = `${data.who} : ${data.msg}`;
+        });
+
+        // [실습2]
+        function inputMsg() {
+            const inputmsg = document.getElementById('input_msg')
+            socket.emit('inputMsg', { msg: inputmsg.value })
+            inputmsg.value = "";
+        }
+        socket.on("outputMsg", (data) => {
+            console.log(data.who, data.msg);
+            const p = document.createElement('p')
+            p.innerHTML = `${data.msg}`
+            if (data.who === socket.id) {
+                p.classList.add('mymsg')
+            } else {
+                p.classList.add('notmymsg')
+            }
+            document.getElementById('chat_background').appendChild(p)
+        })
+
+        socket.on("pushmsg", (data) => {
+            console.log(data.who, data.msg);
+            const p = document.createElement('p')
+            p.innerHTML = `${data.msg}`
+            if (data.who === socket.id) {
+                p.classList.add('mymsg')
+            } else {
+                p.classList.add('notmymsg')
+            }
+            document.getElementById('chat_background').appendChild(p)
+        })
+    </script>
+</body>
+
+</html>
