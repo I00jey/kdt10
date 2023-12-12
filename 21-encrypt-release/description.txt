@@ -1,0 +1,7 @@
+메인 -> 회원가입 / 로그인 / 모든 회원조회 / 내 프로필 (로그인 상태면 출력)
+회원가입 -> 비밀번호 암호화 -> 정보 session에 저장 -> 메인
+로그인 -> db에서 해당 userid 행 findOne -> 입력 비밀번호 vs session 비밀번호 검증 -> 메인
+모든 회원 조회 -> DB에서 findAll
+내 프로필 -> session에 유저 정보(userInfo)가 있다면 프로필 이동 링크 출력 -> userid, password, name 출력 -> 수정 or 회원 탈퇴 기능
+    수정 : 위에 userid, password, name input값 수정 -> DB 값 UPDATE
+    탈퇴 : 버튼 클릭시 '탈퇴 하시겠습니다' conform창 출력 -> 확인 시 db에서 해당 id 행 삭제
