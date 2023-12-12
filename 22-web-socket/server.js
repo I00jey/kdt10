@@ -26,8 +26,10 @@ wsServer.on("connection", (socket) => {
 
     // 클라이언트의 메시지 수신
     socket.on("message", (message) => {
-        const parsemsg = JSON.parse(message);
-        console.log("클라이언트로부터 받은 메시지 >", parsemsg);
+        // 클라이언트에서 받아온 데이터가 buffer형태일 수 있으니 문자열로 변환
+        // const parsemsg = JSON.parse(message);
+        // const textmsg = message.toString();
+        console.log("클라이언트로부터 받은 메시지 >", textmsg);
 
         // 웹 소켓 서버에 접속한 모든 클라이언트에게 메세지 전송
         // = 브로드캐스팅 (여러 컴퓨터한테 데이터 전송)
