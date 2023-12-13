@@ -31,6 +31,12 @@
             text-align: left;
         }
 
+        .sendid {
+            background-color: none;
+            color: black;
+            font-size: 12px;
+        }
+
         .my-chat div {
             background-color: yellow;
         }
@@ -49,62 +55,130 @@
             color: #005397;
             font-size: 12px;
         }
+
+        /* [실습5] */
+        .d-none {
+            display: none;
+        }
     </style>
     <!-- socket.io cdn -->
     <script src="/socket.io/socket.io.js"></script>
-    <title>실습2</title>
+    <title>실습</title>
 </head>
 
 <body>
+    <h1>My Chat</h1>
+    <!-- [실습5] 채팅방 입장 버튼 -->
+    <button type="button" class="join" onclick="join()">입장</button>
+
     <!-- [실습2] 채팅 UI -->
-    <main class="chat-box">
+    <main class="chat-box d-none">
         <div class="chat-list">
             <!-- 임시 대화 데이터 -->
-            <div class="my-chat">
+            <!-- <div class="my-chat">
                 <div>user1 : msg1</div>
             </div>
             <div class="other-chat">
                 <div>user2 : msg2</div>
-            </div>
+            </div> -->
         </div>
 
-        <select name="userid" id="userid">
-            <option value="">전체</option>
-        </select>에게
-        <input type="text" id="message">
+        <!-- 메시지 전송 영역 -->
+        <select id="user-list"></select>에게
+        <input type="text" id="message" onkeydown="if (window.event.keyCode == 13){send()}">
         <button type="button" onclick="send()">전송</button>
     </main>
 
     <script>
+        // 소켓 사용을 위한 객체 생성
         const socket = io.connect()
         socket.on("connect", () => {
             console.log('클라이언트 연결 완료 >', socket.id);
         })
-        // [실습2 & 4]
-        function send() {
-            const chatcontent = document.querySelector('#message').value
-            console.log(chatcontent);
-            socket.emit("pushchat", { who: socket.id, chat: chatcontent })
-        }
-        // "pushchat"을 통해 보낸 데이터를 popchat으로 각 클라이언트에서 출력
-        socket.on("popchat", (data) => {
-            console.log(data);
-            let html;
-            if (data.who === socket.id) {
-                html = `<div class="my-chat"><div>${data.who} : ${data.chat}</div></div>`
-            } else {
-                html = `<div class="other-chat"><div>${data.who} : ${data.chat}</div></div>`
-            }
-            document.querySelector(".chat-list").insertAdjacentHTML("beforeend", html)
-        })
 
         // [실습3]
-        socket.on("notice", (id) => {
-            document.querySelector('.chat-list').insertAdjacentHTML("beforeend", `<div class="notice">${id}님이 입장하셨습니다</div>`)
+        socket.on("notice", (msg) => {
+            document.querySelector('.chat-list').insertAdjacentHTML("beforeend", `<div class="notice">${msg}</div>`)
         })
 
-        // [실습5]
-        // 옵션 생성
+        // [실습4] step1 서버에 채팅 보내기
+        function send() {
+            // 서버로 보낼 객체 생성
+            const data = {
+                // 전체 : all / dm : socket.id
+                dm: document.getElementById('user-list').value,
+                id: socket.id,
+                msg: document.getElementById('message').value
+            }
+            console.log(data);
+            // 서버로 send 이벤트로 객체 전송
+            socket.emit("send", data)
+            // input 초기화
+            document.getElementById('message').value = ""
+        }
+        // [실습4] step2 서버에서 받아서 보여주기
+        socket.on("newMessage", (data) => {
+            /*<div class="my-chat">
+                <div>user1 : msg1</div>
+            </div>
+            <div class="other-chat">
+                <div>user2 : msg2</div>
+            </div>*/
+
+            const chatList = document.querySelector('.chat-list')
+            const div = document.createElement('div')   //my-chat or other-chat
+            const divChat = document.createElement('div')
+
+            if (data.id === socket.id) {
+                // 내가 보낸 메세지
+                div.classList.add('my-chat')
+            } else {
+                // 다른 사람이 보낸 메세지
+                div.classList.add('other-chat')
+            }
+
+            if (data.dm) {
+                div.classList.add('dm-chat')
+                divChat.textContent = data.dm;  //'(DM) '
+            }
+            divChat.textContent += `${data.id} : ${data.msg}`
+            div.append(divChat)
+            chatList.append(div)
+
+            // 메세지가 많아져서 스크롤이 생기더라도 하단 고정
+            chatList.scrollTop = chatList.scrollHeight
+        })
+
+        // [실습5] DM
+        function join() {
+            socket.emit('setUserList', { id: socket.id })
+
+        }
+
+        // 입장 성공 : 입장 버튼 비활성화, 채팅창 보이기
+        socket.on("entrySuccess", (id) => {
+            // 버튼 비활성화
+            document.querySelector('.join').disabled = true
+            // 채팅창 보이기
+            document.querySelector('.chat-box').classList.remove('d-none')
+        })
+        // 유저 목록 업데이트 (select 박스의 option 태그 개수 변경)
+        socket.on("updateUsers", (userObject) => {
+            // userObject : { socket.id : socket.id, ...}
+            console.log('userList', userObject);
+            let options = `<option value="all">전체</option>`
+
+            // todo : userObject 반복 돌아서 option 태그 추가
+            // 새로 만드는 option 태그의 value값 = socket.id
+            for (let key in userObject) {
+                // 본인 제외
+                if (key !== socket.id) {
+                    options += `<option value="${key}">${key}</option >`
+                }
+            }
+
+            document.querySelector('#user-list').innerHTML = options
+        })
 
 
     </script>
