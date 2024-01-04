@@ -1,16 +1,16 @@
 // import Alphabet from "./Alphabet";
-import NameEmail from './MapPrac/NameEmail';
+// import NameEmail from './MapPrac/NameEmail';
 import BoardPage from './MapPrac/BoardPage';
-import Repeat from './Repeat';
+// import Repeat from './Repeat';
 function App() {
     return (
         <div className="App">
-            <Repeat />
+            {/* <Repeat /> */}
             {/* <Alphabet /> */}
-            <hr />
+            {/* <hr /> */}
             {/* 실습 */}
-            <NameEmail />
-            <hr />
+            {/* <NameEmail /> */}
+            {/* <hr /> */}
             <BoardPage />
         </div>
     );
