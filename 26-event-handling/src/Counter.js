@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 function Counter() {
     const [number, setNumber] = useState(0);
@@ -30,14 +30,14 @@ function Counter() {
             {/* 함수에 인자 보내기 : 인자가 있는 함수 익명함수로 감싸서 처리 */}
             <button
                 onClick={() => {
-                    alertMsg("고객님");
+                    alertMsg('고객님');
                 }}
             >
                 alert 출력
             </button>
             <button
                 onClick={(e) => {
-                    consoleMsg(e, "고객님");
+                    consoleMsg(e, '고객님');
                 }}
             >
                 console 출력

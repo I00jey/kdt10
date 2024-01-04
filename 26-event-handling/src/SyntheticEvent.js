@@ -1,6 +1,6 @@
 function SyntheticEvent() {
     function syntheticEvent(e) {
-        console.log("Synthetic Event!");
+        console.log('Synthetic Event!');
         console.log(e);
 
         // 콘솔에 기록되는 e 객체는 SyntheticEvent(합성 이벤트)
@@ -16,7 +16,7 @@ function SyntheticEvent() {
     return (
         <div>
             <button onClick={syntheticEvent}>SyntheticEvent 콘솔에 찍기</button>
-            {/* input 값의 변화를 보고싶을 때 */}
+            {/* input 값의 변화를 보고싶을 때 onChange */}
             <input type="text" onChange={printInputValue} />
         </div>
     );
