@@ -121,7 +121,7 @@ function BoardPage() {
                 </table>
             </div>
 
-            {!searchData ? (
+            {searchData.length <= 0 ? (
                 <div>
                     <h3>검색 결과가 없습니다.</h3>
                 </div>
