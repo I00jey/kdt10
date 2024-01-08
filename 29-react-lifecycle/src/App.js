@@ -17,6 +17,7 @@ function App() {
             {/* <Prac1 /> */}
             <hr />
             <Prac2 />
+            <hr />
         </div>
     );
 }
