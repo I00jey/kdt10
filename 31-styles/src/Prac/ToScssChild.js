@@ -1,21 +1,22 @@
 function ToScssChild({ postDatas }) {
-    const boxStyle = {
-        color: 'lightblue',
-    };
     return (
-        <>
+        <div className="NumList">
             {postDatas.map((newsdata) => {
                 return (
-                    <div key={newsdata.id}>
+                    <div
+                        className={`listBox listBox${newsdata.id}`}
+                        key={newsdata.id}
+                    >
                         <p>
-                            <span style={boxStyle}>NO. {newsdata.id}</span> -
+                            <span className="textNo">NO. {newsdata.id}</span> -{' '}
                             {newsdata.title}
                         </p>
-                        <p>{newsdata.body}</p>
+                        <br />
+                        <p className="newText">{newsdata.body}</p>
                     </div>
                 );
             })}
-        </>
+        </div>
     );
 }
 

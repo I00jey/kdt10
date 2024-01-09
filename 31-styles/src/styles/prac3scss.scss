@@ -1,0 +1,46 @@
+$pageTitle: midnightblue;
+$NoColor: skyblue;
+$listBox: aliceblue;
+$shadowColor: rgb(178, 178, 178);
+$color_white: white;
+
+.NumList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .listBox {
+        width: 600px;
+        background-color: $listBox;
+        border-radius: 40px;
+        padding: 20px;
+        box-shadow: 6px 6px 2px $shadowColor;
+        margin: 30px;
+    }
+
+    .newText {
+        font-weight: 500;
+        font-size: 20px;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+}
+
+h1 {
+    background-color: $pageTitle;
+    color: $color_white;
+    padding: 20px;
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+.textNo {
+    color: $NoColor;
+    font-size: 25px;
+    font-weight: 700;
+}

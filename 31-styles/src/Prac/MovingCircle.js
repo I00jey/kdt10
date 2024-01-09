@@ -1,4 +1,5 @@
-import '../styles/CircleStyle.scss';
+// import '../styles/CircleStyle.scss';
+import '../styles/rotateCircle.scss';
 
 function MovingCircle() {
     return (

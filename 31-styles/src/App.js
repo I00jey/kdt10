@@ -4,6 +4,7 @@ import Prac1 from './Prac/Prac1';
 import ToScss from './Prac/ToScss';
 import SassComponent from './SassComponent';
 import './styles/App.css';
+import StyledComponent from './StyledComponent';
 
 function App() {
     return (
@@ -22,6 +23,9 @@ function App() {
             <MovingCircle />
             <hr />
             <ToScss />
+            <hr />
+            <h2>StyledComponent</h2>
+            <StyledComponent />
         </div>
     );
 }

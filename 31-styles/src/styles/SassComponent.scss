@@ -21,6 +21,7 @@
         @include box(150px);
 
         // & : 부모 선택자 참고해서 치환
+        // className="box red"일 때 맨 앞에 있는 클래스를 부모 선택자로 사용
         &.red {
             // &.red : .box red
             background-color: $color-red;

@@ -1,0 +1,55 @@
+$color_pink: pink;
+$color_yellow: lightyellow;
+$color_green: lightgreen;
+
+@mixin animation($name, $angle) {
+    @keyframes #{$name} {
+        0% {
+            left: 0;
+            transform: scale(1);
+        }
+        50% {
+            left: #{$angle}px;
+            transform: scale(2);
+        }
+        100% {
+            left: 0;
+            transform: scale(1);
+        }
+    }
+}
+
+.circles {
+    height: 800px;
+    width: 1000px;
+    position: relative;
+    left: calc(50% - 500px);
+    background-color: aliceblue;
+
+    .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        position: relative;
+
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+        animation-duration: 3s;
+
+        &.pink {
+            background-color: $color_pink;
+            @include animation(namePink, 10);
+            animation-name: namePink;
+        }
+        &.yell {
+            background-color: $color_yellow;
+            @include animation(nameYellow, 200);
+            animation-name: nameYellow;
+        }
+        &.green {
+            background-color: $color_green;
+            @include animation(nameGreen, 400);
+            animation-name: nameGreen;
+        }
+    }
+}

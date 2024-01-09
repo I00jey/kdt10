@@ -19,7 +19,7 @@ function ToScss() {
                 // 모든 데이터를 받은 후에 2초 뒤에 state 업데이트
                 setTimeout(() => {
                     setPostDatas(promises);
-                }, 2000);
+                }, 1000);
             } catch (err) {
                 console.error(err);
             }
@@ -29,7 +29,7 @@ function ToScss() {
     }, []);
     return (
         <>
-            <h1>postList</h1>
+            <h1>📖POST LIST📖</h1>
             {postDatas.length === 0 ? (
                 <h2>Loading...</h2>
             ) : (
