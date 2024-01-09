@@ -1,0 +1,74 @@
+.warmWhole {
+    position: static;
+    width: 600px;
+    height: 400px;
+}
+.larva {
+    position: relative;
+    .body {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        position: absolute;
+
+        &.body1 {
+            top: 10px;
+            left: 100px;
+            z-index: 2;
+            background-color: rgb(0, 0, 166);
+        }
+        &.body2 {
+            top: 50px;
+            left: 170px;
+            z-index: 3;
+            background-color: rgb(36, 61, 206);
+        }
+        &.body3 {
+            top: 80px;
+            left: 230px;
+            z-index: 4;
+            background-color: rgb(52, 118, 231);
+        }
+        &.body4 {
+            top: 85px;
+            left: 290px;
+            z-index: 9;
+            background-color: rgb(47, 146, 233);
+        }
+        &.body5 {
+            top: 100px;
+            left: 350px;
+            background-color: rgb(140, 191, 253);
+            z-index: 10;
+        }
+    }
+}
+.larva .grass {
+    position: absolute;
+    left: 0px;
+    z-index: 8;
+}
+
+.eye {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.eye-black {
+    @extend .eye;
+    background-color: black;
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    top: 10px;
+}
+
+.eye-white {
+    @extend .eye;
+    background-color: white;
+    z-index: 4;
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    left: 20px;
+}
